@@ -50,16 +50,42 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-/* Hero section */
-.hero {
-    background: url('hero-background.jpg') no-repeat center center/cover;
-    color: #fff;
-    text-align: center;
-    padding: 100px 0;
+/* Hamburger menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
 }
 
-.hero .container {
-    max-width: 600px;
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+/* Hero section */
+.hero {
+    position: relative;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 0; /* Menghapus padding agar teks berada di atas gambar */
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    padding: 20px; /* Tambahkan padding agar teks terlihat lebih baik */
 }
 
 .hero h1 {
@@ -158,15 +184,20 @@ footer .social-icons li img {
 /* Responsive */
 @media (max-width: 768px) {
     nav ul {
+        display: none;
         flex-direction: column;
         align-items: center;
     }
 
-    .hero h1 {
-        font-size: 2.5em;
+    nav ul.show {
+        display: flex;
     }
 
-    .content {
-        padding: 20px;
+    .hamburger {
+        display: flex;
+    }
+
+    .hero-content {
+        padding: 0 20px;
     }
 }
