@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     margin: auto;
 }
@@ -23,16 +23,18 @@ header {
     background-color: #4ca7f1;
     color: #fff;
     padding: 20px 0;
+    position: relative; /* Added for correct placement of hamburger */
 }
 
 header .container {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
 }
 
 .logo img {
     height: 100px;  /* Adjust logo size */
+    width: 100%;
 }
 
 nav ul {
@@ -60,6 +62,7 @@ nav ul li a:hover {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    z-index: 10; /* Ensure hamburger is above the menu */
 }
 
 .hamburger .bar {
@@ -84,13 +87,12 @@ nav ul li a:hover {
     width: 100%;
     height: 80vh;
     object-fit: cover;
-    position: relative; /* Changed from absolute to relative */
+    position: relative;
 }
 
 /* Content */
 .content {
     padding: 40px 0;
-
 }
 
 .content section {
@@ -203,10 +205,21 @@ footer .social-icons li a {
     nav ul {
         display: none;
         flex-direction: column;
-        align-items: center;
         gap: 15px;
-        padding: 20px 0;
+        background-color: #4ca7f1; /* Add background color to dropdown */
         width: 100%;
+        position: absolute;
+        top: 120px; /* Position below the hamburger */
+        left: 0;
+        padding: 20px 20px;
+        z-index: 5;
+        align-items: flex-end;
+    }
+    
+    .logo img {
+        padding-left: 20px;
+        width: 80%;
+        height: auto;
     }
 
     nav ul.show {
@@ -215,6 +228,8 @@ footer .social-icons li a {
 
     .hamburger {
         display: flex;
+        z-index: 15; /* Ensure hamburger is above the menu */
+        padding: 40px;
     }
 
     .hero h1 {
